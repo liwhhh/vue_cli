@@ -24,14 +24,19 @@
       @input="setUserPwd"
     ></sonInput>
    </div>
+   <div class="btn">
+     <sonBtn text="登 录" @send="setLogin"></sonBtn>
+   </div>
   </div>
 </template>
 
 <script>
   import sonInput from "../components/sonInput.vue";
+  import sonBtn from "../components/sonBtn.vue";
   export default {
     components: {
-      sonInput: sonInput
+      sonInput: sonInput,
+      sonBtn:sonBtn
     },
     data(){
       return{
@@ -46,6 +51,9 @@
       },
       setUserPwd(name){
         this.password=name;
+      },
+      setLogin(name){
+      console.log('点击'+name+'了')
       }
     }
   };
