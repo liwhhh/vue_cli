@@ -67,7 +67,22 @@
       },
       //1.点击注册 
       setRegister(name){
-        console.log('点击了'+name)
+        //axios发送数据进行 注册 
+        this.$axios({
+          url:"/register",
+          method:"post",
+          data:{
+            username:this.username,
+            nickname:this.nickname,
+            password:this.password
+          }
+        }).then(res=>{
+           if(!res.data.statusCode){//没有错误就
+          //  1提示用户,2跳转到登录页
+           this.$toast.success(res.data.message);//提示注册成功
+             this.$router.back()
+           }
+        })
       }
     }
   };
