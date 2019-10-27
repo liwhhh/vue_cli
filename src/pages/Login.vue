@@ -52,8 +52,29 @@
       setUserPwd(name){
         this.password=name;
       },
+      //1.点击登录 收集数据 axios请求发送数据(post方式)
       setLogin(name){
-      console.log('点击'+name+'了')
+         this.$axios({
+           url:"/login",
+           method:"post",
+           data:{
+             username:this.username,
+             password:this.password
+           }
+         }).then(res=>{
+           if(!res.data.statusCode){//没有错误时
+           //保存数据到本地(user.id和token)
+           localStorage.setItem('token', res.data.data.token);
+           localStorage.setItem('user_id', res.data.data.user.id)
+              // 1.弹出提示 2.跳转到主页
+            this.$toast.success(res.data.message);
+             setTimeout(()=>{
+               this.$router.push({
+                 name:"homePage" //登录成功跳到主页
+               })
+             },1000)
+           }
+         })
       }
     }
   };
