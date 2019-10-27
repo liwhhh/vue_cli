@@ -1,9 +1,12 @@
 <template>
   <div class="wraperr">
-    <input :class="{error:!isOk}"
-     class="input" :type="type" :placeholder="placeholder"
+    <div>
+      <input :class="{error:!isOk}"
+     class="input" 
+     :type="type" :placeholder="placeholder"
      @input="dataChange" 
      @blur="showTips"/>
+    </div>
   </div>
 </template>
 
@@ -15,11 +18,11 @@
         isOk: true
       };
     },
-    motheds: {
+    methods: {
       showTips(){//鼠标失去焦点
-      if(!this.isOk){  //不是正则表达式语法就提示用户 那个框格式有误
-        this.$toast.fail(this.err_message);
-      }
+        if(!this.isOk){  //不是正则表达式语法就提示用户 那个框格式有误
+          this.$toast.fail(this.err_message);
+        }
 
       },
       dataChange($event) { //框值给父组件
@@ -51,6 +54,6 @@
     border-bottom: 1px solid #ccc;
   }
   .error {
-    color: red;
+    border-bottom:1px solid red; 
   }
 </style>

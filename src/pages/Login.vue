@@ -1,23 +1,29 @@
 <template>
   <div class="contanier">
-    <span class="iconfont iconjiantou1"></span>
-    <div id="new">
+    <div class="closeBtn">
+      <span class="iconfont iconicon-test"></span>
+    </div>
+    <div id="logo">
       <span class="iconfont iconnew"></span>
     </div>
-    <sonInput
+   <div class="inputName">
+      <sonInput
       type="text"
       placeholder="手机号"
       rule="^\d{4,16}$"
-      err-message="请输入正确手机号"
+      err_message="请输入正确手机号"
       @input="setUserName"
     ></sonInput>
-    <sonInput
+   </div>
+   <div class="inputPwd">
+      <sonInput
       type="password"
       placeholder="密码"
       rule="^\d{3,16}$"
-      err-message="请输入正确密码"
+      err_message="请输入正确密码"
       @input="setUserPwd"
     ></sonInput>
+   </div>
   </div>
 </template>
 
@@ -52,7 +58,7 @@
   .iconjiantou1 {
     font-size: 7.5vw;
   }
-  #new {
+  #logo {
     width: 100%;
     height: 100%;
     display: flex;
