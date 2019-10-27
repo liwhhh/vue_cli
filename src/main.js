@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router';
-
-
+import axios from 'axios';
+Vue.prototype.$axios = axios;// 绑定到原型
+axios.defaults.baseURL="http://127.0.0.1:3000"
 //引入组件库
 import Vant from 'vant';
 //注册组件库
