@@ -4,13 +4,19 @@
     <div id="new" >
       <span class="iconfont iconnew"></span>
     </div>
-
+    <sonInput type="text" placeholder="手机号" 
+    rule="^\d{4,16}$"
+    err-message="请输入正确手机号"
+    ></sonInput>
   </div>
 </template>
 
 <script>
+import sonInput from '../components/sonInput.vue';
 export default {
-
+   components:{
+     sonInput:sonInput
+   }
 }
 </script>
 
